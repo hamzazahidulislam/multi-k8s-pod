@@ -1,0 +1,35 @@
+# @format
+
+# ./server-deployment.yaml
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: server
+  template:
+    metadata:
+      labels:
+        component: server
+    spec:
+      containers:
+        - name: server
+          image: hamzazahid/multi-server
+          ports:
+            - containerPort: 5000
+---
+# ./server-cluster-ip-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    component: server
+  ports:
+    - port: 5000
+      targetPort: 5000
