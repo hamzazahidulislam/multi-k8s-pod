@@ -29,8 +29,17 @@ spec:
               subPath: postgres
           env:
             - name: POSTGRES_USER
-              value: user
+              valueFrom:
+                secretKeyRef:
+                  name: postgress-secret # this is generci secret_name
+                  key: postgres-user # this is generci secret key pair
             - name: POSTGRES_PASSWORD
-              value: password
+              valueFrom:
+                secretKeyRef:
+                  name: postgress-secret # this is generci secret_name
+                  key: postgres-password # this is generci secret key pair
             - name: POSTGRES_DB
-              value: dbname
+              valueFrom:
+                secretKeyRef:
+                  name: postgress-secret # this is generci secret_name
+                  key: postgres-db-name # this is generci secret key pair
