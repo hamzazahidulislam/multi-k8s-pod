@@ -25,11 +25,11 @@ spec:
             - name: REDIS_PORT
               value: '6379'
             - name: PGUSER
-              value: user
+              value: postgres
             - name: PGHOST
               value: postgres-cluster-ip-service
             - name: PGDATABASE
-              value: dbname
+              value: postgres
             - name: PGPORT
               value: '5432'
             - name: PGPASSWORD
