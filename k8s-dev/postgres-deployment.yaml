@@ -14,32 +14,19 @@ spec:
       labels:
         component: postgres
     spec:
-      volumes:
-        - name: postgres-storage
-          persistentVolumeClaim:
-            claimName: database-parsistent-volume-claim
       containers:
         - name: postgres
-          image: postgres
+          image: postgres:10.4
+          imagePullPolicy: 'IfNotPresent'
           ports:
             - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: postgres-config
           volumeMounts:
-            - name: postgres-storage
-              mountPath: /var/lib/postgres/data
-              subPath: postgres
-          env:
-            - name: POSTGRES_USER
-              valueFrom:
-                secretKeyRef:
-                  name: postgress-secret # this is generci secret_name
-                  key: postgres-user # this is generci secret key pair
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: postgress-secret # this is generci secret_name
-                  key: postgres-password # this is generci secret key pair
-            - name: POSTGRES_DB
-              valueFrom:
-                secretKeyRef:
-                  name: postgress-secret # this is generci secret_name
-                  key: postgres-db-name # this is generci secret key pair
+            - mountPath: /var/lib/postgresql/data
+              name: postgredb
+      volumes:
+        - name: postgredb
+          persistentVolumeClaim:
+            claimName: postgres-pv-claim
