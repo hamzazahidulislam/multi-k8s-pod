@@ -1,3 +1,7 @@
+/** @format */
+
+require('dotenv').config()
+
 module.exports = {
   redisHost: process.env.REDIS_HOST,
   redisPort: process.env.REDIS_PORT,
@@ -6,4 +10,4 @@ module.exports = {
   pgDatabase: process.env.PGDATABASE,
   pgPassword: process.env.PGPASSWORD,
   pgPort: process.env.PGPORT
-};
+}
