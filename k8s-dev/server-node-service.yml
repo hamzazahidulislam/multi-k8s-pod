@@ -1,0 +1,15 @@
+# @format
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-node-cluster-ip-service
+spec:
+  type: NodePort
+  selector:
+    component: server
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+      nodePort: 30001
