@@ -12,13 +12,6 @@ spec:
     - http:
         paths:
           - pathType: Prefix
-            path: '/'
-            backend:
-              service:
-                name: client-cluster-ip-service
-                port:
-                  number: 3000
-          - pathType: Prefix
             path: '/api'
             backend:
               service:
