@@ -28,8 +28,9 @@ spec:
               mountPath: /var/lib/postgres/data
               subPath: postgres
           env:
+            - name: POSTGRES_USER
+              value: user
             - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: pgpassword # this is generci secret_name
-                  key: PGPASSWORD # this is generci secret key pair
+              value: password
+            - name: POSTGRES_DB
+              value: dbname
