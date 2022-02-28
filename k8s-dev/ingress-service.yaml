@@ -3,7 +3,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: Ingress-service
+  name: ingress-service
 spec:
   rules:
     - http:
