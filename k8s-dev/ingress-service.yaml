@@ -12,7 +12,7 @@ spec:
     - http:
         paths:
           - pathType: Prefix
-            path: '/api/?(.*)'
+            path: '/'
             backend:
               service:
                 name: server-cluster-ip-service
