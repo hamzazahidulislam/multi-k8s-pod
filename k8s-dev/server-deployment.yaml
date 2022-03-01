@@ -20,6 +20,8 @@ spec:
           ports:
             - containerPort: 5000
           env:
+            - name: EXTERNAL_PORT
+              value: '5000'
             - name: REDIS_HOST
               value: redis-cluster-ip-service
             - name: REDIS_PORT
