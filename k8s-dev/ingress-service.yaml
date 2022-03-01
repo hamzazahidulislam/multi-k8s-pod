@@ -24,6 +24,6 @@ spec:
             path: 'api/?(.*)'
             backend:
               service:
-                name: server-cluster-ip-service
+                name: node-service
                 port:
                   number: 5000
