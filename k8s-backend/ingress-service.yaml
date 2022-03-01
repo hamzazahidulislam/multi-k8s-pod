@@ -1,0 +1,17 @@
+# @format
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-service
+spec:
+  rules:
+    - http:
+        paths:
+          - pathType: Prefix
+            path: '/'
+            backend:
+              service:
+                name: server-cluster-ip-service
+                port:
+                  number: 5000
