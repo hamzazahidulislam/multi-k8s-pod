@@ -11,19 +11,11 @@ spec:
   rules:
     - http:
         paths:
-          - pathType: Prefix
-            path: '/'
+          - path: /?(.*)
             backend:
-              service:
-                name: client-cluster-ip-service
-                port:
-                  number: 3000
-    - http:
-        paths:
-          - pathType: Prefix
-            path: '/api/?(.*)'
+              serviceName: client-cluster-ip-service
+              servicePort: 3000
+          - path: /api/?(.*)
             backend:
-              service:
-                name: node-service
-                port:
-                  number: 5000
+              serviceName: server-cluster-ip-service
+              servicePort: 5000

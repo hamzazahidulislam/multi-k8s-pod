@@ -36,17 +36,3 @@ spec:
               value: '5432'
             - name: PGPASSWORD
               value: password
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: node-service
-spec:
-  selector:
-    component: server
-  type: LoadBalancer
-  ports:
-    - protocol: TCP
-      port: 5000
-      targetPort: 5000
-      nodePort: 30000
