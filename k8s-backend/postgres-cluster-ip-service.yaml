@@ -5,10 +5,9 @@ kind: Service
 metadata:
   name: postgres-cluster-ip-service
 spec:
-  ClusterIP: None
+  type: ClusterIP
   selector:
     component: postgres
   ports:
-    - portocol: TCP
-      port: 5432
+    - port: 5432
       targetPort: 5432
