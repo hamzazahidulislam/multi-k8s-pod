@@ -28,5 +28,8 @@ spec:
               name: postgredb
       volumes:
         - name: postgredb
-          persistentVolumeClaim:
-            claimName: postgres-pv-claim
+          emptyDir: {}
+      # volumes:
+      #   - name: postgredb
+      #     persistentVolumeClaim:
+      #       claimName: postgres-pv-claim
