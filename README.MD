@@ -14,7 +14,7 @@ if you want to understand about docker container in this project. you have to se
 ## run deployment in local cluster
 
 - ### please make sure you have microk8s or minikube single node cluster setup
-  - `kubectl apply -f ./k8s-dev`
+         kubectl apply -f ./k8s-dev
 
 ## Running Travis CLI in a Container
 
