@@ -4,7 +4,7 @@
 
 1.  You Have to know about Multi Docker Conatiner on this project?
 2.  run deployment in local cluster
-3.  How to run multiple docker containers?
+3.  How to deploy k8s in GKE and Azure Cluster?
 
 ## You Have to know about Multi Docker Conatiner on this project
 
@@ -14,7 +14,10 @@ if you want to understand about docker container in this project. you have to se
 ## run deployment in local cluster
 
 - ### please make sure you have microk8s or minikube single node cluster setup
+- ### you have to enable ingress addons in your cluster
          kubectl apply -f ./k8s-dev
+
+## How to deploy k8s in GKE and Azure Cluster
 
 ## Running Travis CLI in a Container
 
