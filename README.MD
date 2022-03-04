@@ -175,3 +175,7 @@ $ skaffold dev
 ![1](https://user-images.githubusercontent.com/56122568/114265945-44340400-99fc-11eb-9378-b0502385a764.png)
 
 .
+
+## what is k8s init container
+
+init container is dependence container what is mean by that. for example you have a backend application need to connect database. backend application can't run berfore database it's neeed to database run first after backend application connected
