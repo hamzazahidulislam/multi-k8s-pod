@@ -25,6 +25,7 @@ if you want to understand about docker container in this project. you have to se
 - first enable billing in your GCP Project
 - create a GKE cluster
 - open cloud shell
+- install helm
 - run the following command
 
 ```
@@ -54,6 +55,7 @@ kubectl apply -f ./k8s-prod
 - link bank card in Azure dashboard
 - create a AKS cluster
 - open cloud shell
+- install helm and setup ingress with helm
 - run the following command
 
 ```
@@ -73,6 +75,25 @@ git clone https://github.com/hamzazahidulislam/multi-k8s-pod && cd multi-k8s-pod
 ```
 kubectl apply -f ./k8s-prod
 ```
+
+### Installing Helm on Kubernetes
+
+This is main document: [https://helm.sh/docs/intro/install/](https://helm.sh/docs/intro/install/)
+
+```bash
+$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
+```
+
+## Lets understand how to configure Travis CI pipeline for this project
+
+configure travis ci /cd what i do create github repository and link with travis ci. when we configure travis in github we have to remember we need to secure my cloud access json file need to me secured
+
+- 1 Travis Login
+- 2 add environment variable in Travis CI
+
+#### **_pre requirement before travis login_**
 
 ## Running Travis CLI in a Container
 
@@ -107,20 +128,18 @@ $ travis login --pro --github-token xxx-xxx-xxx
 $ travis encrypt-file service-account.json -r hamzazahidulislam/multi-k8s-pod
 ```
 
+## add environment variable in Travis CI
+
+add docker **_DOCKER_USERNAME_** and **_DOCKER_PASSWORD_** for Travis CI build docker image and push on docker hub
+
+## End of the Project
+
+### and last please check my `travis.yml` file and see how the pipelines works
+
 ## Creating a Secret on Google Cloud
 
 ```bash
 $ kubectl create secret generic pgpassword --from-literal PGPASSWORD=mypgpassword123
-```
-
-### Installing Helm
-
-This is main document: [https://helm.sh/docs/intro/install/](https://helm.sh/docs/intro/install/)
-
-```bash
-$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
-$ chmod 700 get_helm.sh
-$ ./get_helm.sh
 ```
 
 ## Assigning Tiller a Service Account
