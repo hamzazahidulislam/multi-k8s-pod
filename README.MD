@@ -1,8 +1,15 @@
 <!-- @format -->
 
-## Description
+# Multi K8S Pod
 
-[K8S](https://kubernetes.io/) Production-Grade Container Orchestration.
+1.  You Have to know about Multi Docker on this project?
+2.  let's understand the application architecture?
+3.  How to run multiple docker containers?
+
+## You Have to know about Multi Docker on this project
+
+if you want to understand about docker container in this project. you have to see first Multi Docker Container. or you can continue from here
+[Multi-Dcoker-Conatiner](https://github.com/hamzazahidulislam/multi-docker)
 
 ## Running Travis CLI in a Container
 
