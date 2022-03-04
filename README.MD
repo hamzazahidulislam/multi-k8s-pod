@@ -176,4 +176,20 @@ $ skaffold dev
 
 ## what is k8s init container
 
-init container is dependence container what is mean by that. for example you have a backend application need to connect database. backend application can't run berfore database it's neeed to database run first after backend application connected
+- init container is dependence container what is mean by that. for example you have a backend application need to connect database. backend application can't run berfore database it's neeed to database run first after backend application connected
+
+- i want to show you practical example of how to init container work
+
+create a postgres container and run it
+
+        docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+
+and inspect the postgres container
+
+        docker inspect some-postgres | grep IPAddress
+
+second create a alpine container and run it
+
+        docker run -it --network host --name my_alpine alpine
+
+after i inside alpine container
