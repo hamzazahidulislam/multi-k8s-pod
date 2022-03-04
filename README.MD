@@ -12,8 +12,10 @@ if you want to understand about docker container in this project. you have to se
 [Multi-Docker-Conatiner](https://github.com/hamzazahidulislam/multi-docker)
 
 ## run deployment in local cluster
- - ### please make sure you have microk8s or minikube single node cluster setup
-      - kubectl apply -f k8s
+
+- ### please make sure you have microk8s or minikube single node cluster setup
+  - `kubectl apply -f ./k8s-dev`
+
 ## Running Travis CLI in a Container
 
 ```bash
