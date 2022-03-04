@@ -86,6 +86,10 @@ $ chmod 700 get_helm.sh
 $ ./get_helm.sh
 ```
 
+### Ingress-Nginx with Helm
+
+This is main document: [Ingress-Nginx-with-Helm](https://kubernetes.github.io/ingress-nginx/deploy/#using-helm)
+
 ## Lets understand how to configure Travis CI pipeline for this project
 
 configure travis ci /cd what i do create github repository and link with travis ci. when we configure travis in github we have to remember we need to secure my cloud access json file need to me secured
@@ -136,7 +140,9 @@ add docker **_DOCKER_USERNAME_** and **_DOCKER_PASSWORD_** for Travis CI build d
 
 ### and last please check my `travis.yml` file and see how the pipelines works
 
-## Creating a Secret on Google Cloud
+#### **_optional parts_**
+
+## Creating a Secret on Kubernetes
 
 ```bash
 $ kubectl create secret generic pgpassword --from-literal PGPASSWORD=mypgpassword123
@@ -163,10 +169,6 @@ $ kubectl get secrets
 ```bash
 $ skaffold dev
 ```
-
-### Ingress-Nginx with Helm
-
-This is main document: [https://kubernetes.github.io/ingress-nginx/deploy/#using-helm](https://kubernetes.github.io/ingress-nginx/deploy/#using-helm)
 
 ## Create Encrypt File
 
