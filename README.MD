@@ -195,3 +195,12 @@ second create a alpine container and run it
 after i inside alpine container
 
         nc -zvw1 $some-postgres.IPAddress 5432 && exit 0
+
+## Refernces
+
+- Pipe, Grep and Sort Command in Linux
+
+  - https://www.guru99.com/linux-pipe-grep.html
+
+- Netcat Command in Linux
+  - https://www.linuxfordevices.com/tutorials/netcat-command-in-linux#
