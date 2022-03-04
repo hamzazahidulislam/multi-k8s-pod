@@ -1,0 +1,48 @@
+# @format
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: server
+  template:
+    metadata:
+      labels:
+        component: server
+    spec:
+      # wait for postgres-cluster-ip-service to run first
+      initContainers:
+        - name: init-wait-for-db
+          image: alpine
+          command:
+            [
+              '/bin/sh',
+              '-c',
+              'for i in $(seq 1 300); do nc -zvw1 postgres-cluster-ip-service 5432 && exit 0 || sleep 3; done; exit 1'
+            ]
+      containers:
+        - name: server
+          image: hamzazahid/multi-server
+          ports:
+            - containerPort: 5000
+          env:
+            - name: EXTERNAL_PORT
+              value: '5000'
+            - name: REDIS_HOST
+              value: redis-cluster-ip-service
+            - name: REDIS_PORT
+              value: '6379'
+            - name: PGUSER
+              value: postgresadmin
+            - name: PGHOST
+              value: postgres-cluster-ip-service
+            - name: PGDATABASE
+              value: postgresdb
+            - name: PGPORT
+              value: '5432'
+            - name: PGPASSWORD
+              value: admin123

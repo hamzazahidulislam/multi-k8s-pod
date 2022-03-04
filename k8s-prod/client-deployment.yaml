@@ -1,0 +1,31 @@
+# @format
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: web
+  template:
+    metadata:
+      labels:
+        component: web
+    spec:
+      # wait for server-cluster-ip-service to run first
+      initContainers:
+        - name: init-wait-for-backend
+          image: alpine
+          command:
+            [
+              '/bin/sh',
+              '-c',
+              'for i in $(seq 1 300); do nc -zvw1 server-cluster-ip-service 5000 && exit 0 || sleep 3; done; exit 1'
+            ]
+      containers:
+        - name: client
+          image: hamzazahid/multi-client
+          ports:
+            - containerPort: 3000

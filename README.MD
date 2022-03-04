@@ -2,15 +2,18 @@
 
 # Multi K8S Pod
 
-1.  You Have to know about Multi Docker on this project?
-2.  let's understand the application architecture?
+1.  You Have to know about Multi Docker Conatiner on this project?
+2.  run deployment in local cluster
 3.  How to run multiple docker containers?
 
-## You Have to know about Multi Docker on this project
+## You Have to know about Multi Docker Conatiner on this project
 
 if you want to understand about docker container in this project. you have to see first Multi Docker Container. or you can continue from here
-[Multi-Dcoker-Conatiner](https://github.com/hamzazahidulislam/multi-docker)
+[Multi-Docker-Conatiner](https://github.com/hamzazahidulislam/multi-docker)
 
+## run deployment in local cluster
+ - ### please make sure you have microk8s or minikube single node cluster setup
+      - kubectl apply -f k8s
 ## Running Travis CLI in a Container
 
 ```bash
