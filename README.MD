@@ -193,3 +193,5 @@ second create a alpine container and run it
         docker run -it --network host --name my_alpine alpine
 
 after i inside alpine container
+
+        nc -zvw1 $some-postgres.IPAddress 5432 && exit 0
