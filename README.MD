@@ -19,6 +19,35 @@ if you want to understand about docker container in this project. you have to se
 
 ## How to deploy k8s in GKE and Azure Cluster
 
+1. GCP inside GKE
+
+- first enable billing in your GCP Project
+- create a GKE cluster
+- open cloud shell
+- run the following command
+
+```
+gcloud config set project $PROJECT_ID
+
+```
+
+```
+gcloud config set compute/zone  $ZONE
+
+```
+
+```
+gcloud container clusters get-credentials $CLUSTER_NAME
+```
+
+```
+git clone https://github.com/hamzazahidulislam/multi-k8s-pod && cd multi-k8s-pod
+```
+
+```
+kubectl apply -f ./k8s-prod
+```
+
 ## Running Travis CLI in a Container
 
 ```bash
